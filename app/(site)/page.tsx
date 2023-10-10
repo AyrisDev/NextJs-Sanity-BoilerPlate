@@ -3,8 +3,11 @@ import type { ProfileType } from "@/types";
 import HeroSvg from "./icons/HeroSvg";
 import Job from "./components/Job";
 
+import { osLocale } from "os-locale";
+
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
+  const locale = await osLocale();
 
   return (
     <main className="max-w-7xl mx-auto lg:px-16 px-6">
@@ -26,8 +29,7 @@ export default async function Home() {
                       <a
                         href={value}
                         rel="noreferer noopener"
-                        className="flex items-center gap-x-3 mb-5 hover:text-purple-400 duration-300"
-                      >
+                        className="flex items-center gap-x-3 mb-5 hover:text-purple-400 duration-300">
                         {key[0].toUpperCase() + key.toLowerCase().slice(1)}
                       </a>
                     </li>

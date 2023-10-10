@@ -37,6 +37,17 @@ export async function getJob() {
   );
 }
 
+export async function getMenu() {
+  return client.fetch(
+    groq`*[_type == "menu"]{
+      _id,
+      name,
+      title,
+
+    }`
+  );
+}
+
 export async function getProjects() {
   return client.fetch(
     groq`*[_type == "project"]{
